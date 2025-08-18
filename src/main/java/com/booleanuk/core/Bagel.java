@@ -8,10 +8,10 @@ public class Bagel {
     private String variant;
     private int price;
     private Filling filling;
+
 // TODO: fix -> this -> setter methods
-    public Bagel(String sku, Filling filling, int price, String variant, String name) {
+    public Bagel(String sku, int price, String variant, String name) {
         this.sku = sku;
-        this.filling = filling;
         this.price = price;
         this.variant = variant;
         this.name = name;

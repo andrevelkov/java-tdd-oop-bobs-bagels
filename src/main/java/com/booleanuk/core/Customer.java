@@ -1,12 +1,13 @@
 package com.booleanuk.core;
 
+import java.sql.Time;
 import java.util.List;
 
 public class Customer {
     private Basket basket;
 
-    public Customer() {
-
+    public Customer(Basket basket) {
+        this.basket = basket;
     }
 
     public void addBagelToBasket(Bagel bagel) {
@@ -34,8 +35,13 @@ public class Customer {
 
     }
 
-    public void orderBagelAtSpecificTime() {
+    public String orderBagelAtSpecificTime(Time time) {
 
+        return "Order: " + time + ", Bagel: ";
+    }
+
+    public int returnBasketCapacity() {
+        return this.basket.getBagels().size();
     }
 
 }

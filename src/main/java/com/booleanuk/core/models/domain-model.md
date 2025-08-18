@@ -11,10 +11,10 @@
 | `Manager`   | `changeBasketCapacity(int capacity)`      | If manager decides to change basket capacity               | Updates basket capacity                        |
 |             | `addToInventory(Bagel bagel)`             | If manager adds new item to inventory not in inventory     | Updates inventory                              |
 |             |                                           | If manager adds new item which is in inventory             | Returns error: "Item already exists."          |
-| `Customer`  | `addBagelToBasket(Bagel bagel)`           | If customer adds a bagel to their basket                   | Adds the bagel to the basket                   |
+| `Customer`  | `addBagelToBasket(String stu)`            | If customer adds a bagel to their basket                   | Adds the bagel to the basket                   |
 |             |                                           | If the bagel is out of stock                               | Returns error: "Bagel out of stock."           |
 |             |                                           | If the bagel is out of stock                               | Returns error: "Bagel out of stock."           |
-|             | `removeBagelFromBasket(Bagel bagel)`      | If customer removes a bagel from their basket              | Removes the bagel from the basket              |
+|             | `removeBagelFromBasket(String stu)`       | If customer removes a bagel from their basket              | Removes the bagel from the basket              |
 |             |                                           | If the bagel is not in the basket                          | Returns error: "Bagel not in basket."          |
 |             | `viewTotalCost()`                         | If customer checks the total cost of items in their basket | Returns total cost of all items in the basket  |
 |             | `viewBagelPrice(Bagel bagel)`             | If customer checks the price of a specific bagel           | Returns price of the selected bagel            |

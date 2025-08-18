@@ -1,23 +1,21 @@
 package com.booleanuk.core;
 
 public class Filling {
-    private String id;
-    private int price;
+    private float price;
     private String sku;
     private String variant;
 
-    public Filling(String id, int price, String sku, String variant) {
-        setId(id);
+    public Filling(float price, String sku, String variant) {
         setPrice(price);
         setSku(sku);
         setVariant(variant);
     }
 
-    public int getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
@@ -27,14 +25,6 @@ public class Filling {
 
     public void setSku(String sku) {
         this.sku = sku;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getVariant() {
