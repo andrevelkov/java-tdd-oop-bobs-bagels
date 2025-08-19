@@ -19,10 +19,10 @@ public class CustomerTest {
         Basket basket = new Basket("", 5);
         Customer customer = new Customer(basket, inventory);
 
-        Bagel bagel = new Bagel("new", 5, "test", Product.ProductType.BAGEL);
+        Bagel bagel = new Bagel("BGLP", 0.39f, "Plain", Product.ProductType.BAGEL);
 
-        customer.addBagelToBasket(new Bagel("test1", 10, "test1", Product.ProductType.BAGEL));
-        customer.addBagelToBasket(new Bagel("2", 4, "test1", Product.ProductType.BAGEL));
+        customer.addBagelToBasket(new Bagel("BGLO", 0.49f, "Onion", Product.ProductType.BAGEL));
+        customer.addBagelToBasket(new Bagel("BGLP", 0.39f, "Plain", Product.ProductType.BAGEL));
         assertEquals(2, customer.getAmountOfBagelsInBasket());
         customer.addBagelToBasket(bagel);
         assertEquals(3, customer.getAmountOfBagelsInBasket());
@@ -36,42 +36,42 @@ public class CustomerTest {
     public void orderBagelAtSpecificTimeShouldReturnTimeAndBagels() {
         Basket basket = new Basket("", 5);
         Customer customer = new Customer(basket, inventory);
-        Bagel bagel = new Bagel("SKU123", 10f, "NICEUU", Product.ProductType.BAGEL);
+        Bagel bagel = new Bagel("BGLP", 0.39f, "Plain", Product.ProductType.BAGEL);
         customer.addBagelToBasket(bagel);
         Time time = Time.valueOf("10:00:00");
-        assertEquals("Order: 10:00:00, Bagel: NICEUU", customer.orderBagelAtSpecificTime(time, "plain"));
+        assertEquals("Order: 10:00:00, Bagel: Plain", customer.orderBagelAtSpecificTime(time, "plain"));
     }
 
     @Test
     public void getCorrectTotalCostOfCustomerBasket() {
         Customer customer = new Customer(new Basket("", 5), inventory);
-        customer.addBagelToBasket(new Bagel("test1", 10, "test1", Product.ProductType.BAGEL));
-        customer.addBagelToBasket(new Bagel("2", 4, "test1", Product.ProductType.BAGEL));
+        customer.addBagelToBasket(new Bagel("BGLP", 0.39f, "Plain", Product.ProductType.BAGEL));
+        customer.addBagelToBasket(new Bagel("BGLO", 0.49f, "Onion", Product.ProductType.BAGEL));
 
-        Bagel bagel = new Bagel("SKU123", 14f, "NIce one", Product.ProductType.BAGEL);
+        Bagel bagel = new Bagel("BGLO", 0.49f, "Onion", Product.ProductType.BAGEL);
         Filling filling = new Filling("SKU123", 0.8f, "Chocolate", Product.ProductType.FILLING);
         bagel.setFilling(filling);
         customer.addBagelToBasket(bagel);
 
-        assertEquals(28.8f, customer.getTotalCost());
+        assertEquals(2.17f, customer.getTotalCost());
         customer.removeBagelFromBasket(bagel);
-        assertEquals(14, customer.getTotalCost());
+        assertEquals(0.8799999952316284, customer.getTotalCost());
     }
 
     @Test
     public void getSingleBagelPriceFromBasket() {
         Customer customer = new Customer(new Basket("", 5), inventory);
-        customer.addBagelToBasket(new Bagel("test1", 10, "test1", Product.ProductType.BAGEL));
-        customer.addBagelToBasket(new Bagel("2", 4, "test1", Product.ProductType.BAGEL));
+        customer.addBagelToBasket(new Bagel("BGLO", 0.49f, "Onion", Product.ProductType.BAGEL));
+        customer.addBagelToBasket(new Bagel("BGLO", 0.49f, "Onion", Product.ProductType.BAGEL));
 
-        Bagel bagel = new Bagel("SKU123", 14f, "NIce one", Product.ProductType.BAGEL);
+        Bagel bagel = new Bagel("BGLE", 0.49f, "Everything", Product.ProductType.BAGEL);
         Filling filling = new Filling("SKU123", 0.8f, "Chocolate", Product.ProductType.FILLING);
         bagel.setFilling(filling);
         customer.addBagelToBasket(bagel);
 
-        assertEquals(14.8f, customer.getBagelPrice(bagel));
+        assertEquals(1.29f, customer.getBagelPrice(bagel));
         customer.removeBagelFromBasket(bagel);
-        assertNotEquals(14.8f, customer.getBagelPrice(bagel));
+        assertNotEquals(0.98f, customer.getBagelPrice(bagel));
         assertEquals(-1, customer.getBagelPrice(bagel));
     }
 
