@@ -8,10 +8,11 @@ public class BagelTest {
 
     @Test
     public void bagelFillingShouldReturnFillingOrErrorMsg() {
-        Bagel bagel = new Bagel("test", 10, "nice one", "nice");
-        Assertions.assertNotNull(bagel.getFilling());
-        Bagel bagel2 = new Bagel("test", 10, "nice one", "nice");
-        Filling filling = new Filling(0.5f, "SKU", "niceFilling");
+        Bagel bagel = new Bagel("test", 10, "nice one");
+        Assertions.assertNull(bagel.getFilling());
+        Bagel bagel2 = new Bagel("test", 10, "nice one");
+        Filling filling = new Filling("SKU", 0.5f, "filling");
+        Assertions.assertEquals(0.5f, filling.getPrice());
         filling.setPrice(0.13f);
         bagel2.setFilling(filling);
         Assertions.assertEquals(0.13f, bagel2.getFilling().getPrice());
@@ -19,10 +20,16 @@ public class BagelTest {
 
     @Test
     public void getCorrectFillingCost() {
-        Bagel bagel = new Bagel("test", 10, "nice one", "nice");
-        Filling filling = new Filling(0.5f, "SKU", "niceFilling");
-        Assertions.assertEquals(10.5, bagel.getPrice());
+        Bagel bagel = new Bagel("SKU1", 10f, "nice one");
+        Filling filling = new Filling("SKU", 0.5f, "filling");
+        Assertions.assertEquals(10f, bagel.getPrice());
+        bagel.setFilling(filling);
+        Assertions.assertEquals(10.5f, bagel.getPrice());
         filling.setPrice(0.13f);
-        Assertions.assertEquals(10.13, bagel.getPrice());
+        Assertions.assertEquals(10.13f, bagel.getPrice());
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> bagel.setPrice(0));
+        Assertions.assertDoesNotThrow(() -> bagel.setPrice(1));
     }
+
 }

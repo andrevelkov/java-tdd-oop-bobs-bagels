@@ -4,14 +4,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Inventory {
-    private List<Bagel> inventoryList = new ArrayList<>();
+    private List<Product> products = new ArrayList<>();
 
 
-    public void addItem() {
+    public void addProduct(Product product) {
+        products.add(product);
+    }
+
+    public void removeProduct(Product product) {
 
     }
 
-    public void removeItem() {
-
+    public List<Product> getInventoryList() {
+        return this.products;
     }
+
+    public void printInventory() {
+        for (Product p : products) {
+            System.out.println(p);
+//            if (p instanceof Bagel) {
+//                System.out.println("ISSA BAGEL");
+//            }
+        }
+    }
+
 }

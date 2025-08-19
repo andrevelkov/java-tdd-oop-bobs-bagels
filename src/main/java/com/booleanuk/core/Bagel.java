@@ -2,59 +2,32 @@ package com.booleanuk.core;
 
 import java.util.List;
 
-public class Bagel {
-    private String sku;
-    private String name;
-    private String variant;
-    private int price;
+public class Bagel extends Product {
     private Filling filling;
 
-// TODO: fix -> this -> setter methods
-    public Bagel(String sku, int price, String variant, String name) {
-        this.sku = sku;
-        this.price = price;
-        this.variant = variant;
-        this.name = name;
+    public Bagel(String sku, float price, String variant) {
+        super(sku, price, variant);
+
+        setPrice(price);
     }
 
-    public Bagel() {
+    public void setPrice(float price) {
+        if (price <= 0)
+            throw new IllegalArgumentException("Price must be more than 0");
 
+        super.setPrice(price);
     }
 
-    public String getSku() {
-        return sku;
-    }
-
-    public void setSku(String sku) {
-        this.sku = sku;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getVariant() {
-        return variant;
-    }
-
-    public void setVariant(String variant) {
-        this.variant = variant;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
+    @Override
+    public float getPrice() {
+        if (filling != null)
+            return super.getPrice() + filling.getPrice();
+        else
+            return super.getPrice();
     }
 
     public Filling getFilling() {
-        return filling;
+        return this.filling;
     }
 
     public void setFilling(Filling filling) {
@@ -65,9 +38,16 @@ public class Bagel {
 
     }
 
-    public void getFillingCost(List<Filling> fillings) {
-
+    public float getFillingCost() {
+        return (this.filling != null) ? this.filling.getPrice() : 0f;
     }
 
+//    public int getBagelTotPrice() {
+//        return 0;
+//    }
 
+    @Override
+    public String toString() {
+        return this.getVariant();
+    }
 }

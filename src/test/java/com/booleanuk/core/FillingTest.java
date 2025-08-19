@@ -7,8 +7,7 @@ public class FillingTest {
 
     @Test
     public void testFillingConstructor() {
-        // Test 1: Ensure constructor initializes correctly
-        Filling filling = new Filling(10.0f, "SKU123", "Vanilla");
+        Filling filling = new Filling("sku123", 10.0f, "Vanilla");
 
         Assertions.assertEquals(10.0f, filling.getPrice());
         Assertions.assertEquals("SKU123", filling.getSku());
@@ -17,8 +16,7 @@ public class FillingTest {
 
     @Test
     public void testSettersAndGetters() {
-        // Test 2: Test setters and getters after object creation
-        Filling filling = new Filling(10.0f, "SKU123", "Vanilla");
+        Filling filling = new Filling("sku123", 10.0f, "Vanilla");
 
         filling.setPrice(12.5f);
         filling.setSku("SKU456");
@@ -31,11 +29,12 @@ public class FillingTest {
 
     @Test
     public void testNullOrEmptyValues() {
-        // Test 3: Test setting null or empty values
-        Filling filling = new Filling(0.0f, "", "");
-
-        Assertions.assertEquals(0.0f, filling.getPrice());
-        Assertions.assertEquals("", filling.getSku());
-        Assertions.assertEquals("", filling.getVariant());
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            new Filling("", 0.0f, "");
+        });
+        Filling filling = new Filling("", -1f, "");
+        Assertions.assertEquals(1f, filling.getPrice()); //defaults
+        Assertions.assertEquals("FIL", filling.getSku()); //defaults
+        Assertions.assertEquals("plain", filling.getVariant()); //defaults
     }
 }

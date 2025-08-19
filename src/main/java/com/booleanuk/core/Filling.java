@@ -1,38 +1,50 @@
 package com.booleanuk.core;
 
-public class Filling {
-    private float price;
-    private String sku;
-    private String variant;
+public class Filling extends Product {
 
-    public Filling(float price, String sku, String variant) {
+    public Filling(String sku, float price, String variant) {
+        super(sku, price, variant);
+
         setPrice(price);
         setSku(sku);
-        setVariant(variant);
     }
 
     public float getPrice() {
-        return price;
+        return super.getPrice();
     }
 
     public void setPrice(float price) {
-        this.price = price;
+        if (price < 0)
+            price = 1f;
+        super.setPrice(price);
     }
 
     public String getSku() {
-        return sku;
+        return super.getSku();
     }
 
     public void setSku(String sku) {
-        this.sku = sku;
+        if (sku.toUpperCase().trim().isEmpty())
+            sku = "FIL";
+
+        String upperCase = sku.toUpperCase().trim();
+
+        super.setSku(upperCase);
     }
 
     public String getVariant() {
-        return variant;
+        return super.getVariant();
     }
 
     public void setVariant(String variant) {
-        this.variant = variant;
+        if (variant.trim().isEmpty())
+            variant = "plain";
+
+        super.setVariant(variant);
     }
 
+    @Override
+    public String toString() {
+        return this.getVariant();
+    }
 }

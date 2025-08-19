@@ -1,29 +1,41 @@
 package com.booleanuk.core;
 
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
-    private Basket basket;
+    private Basket basket = null;
 
     public Customer(Basket basket) {
         this.basket = basket;
     }
 
     public void addBagelToBasket(Bagel bagel) {
-
+        basket.addBagel(bagel);
     }
 
     public void removeBagelFromBasket(Bagel bagel) {
-
+        basket.removeBagel(bagel);
     }
 
-    public void viewTotalCost() {
+    public float getTotalCost() {
+        ArrayList<Bagel> bagels = basket.getBagels();
 
+        float totCost = 0;
+        for (Bagel bagel : bagels)
+            totCost += bagel.getPrice();
+
+        return totCost;
     }
 
-    public void viewBagelPrice() {
+    public float getBagelPrice(Bagel bagel) {
+        ArrayList<Bagel> bagels = basket.getBagels();
+        for (Bagel b : bagels)
+            if (b.getSku().equals(bagel.getSku()))
+                return b.getPrice();
 
+        return -1;
     }
 
     public int selectFillings(int option) {
@@ -35,12 +47,11 @@ public class Customer {
 
     }
 
-    public String orderBagelAtSpecificTime(Time time) {
-
-        return "Order: " + time + ", Bagel: ";
+    public String orderBagelAtSpecificTime(Time time, Bagel bagel) {
+        return "Order: " + time + ", Bagel: " + bagel.toString();
     }
 
-    public int returnBasketCapacity() {
+    public int getAmountOfBagelsInBasket() {
         return this.basket.getBagels().size();
     }
 

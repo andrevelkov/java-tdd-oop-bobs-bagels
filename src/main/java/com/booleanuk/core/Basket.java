@@ -17,6 +17,9 @@ public class Basket {
     }
 
     public void setBasketType(String basketType) {
+        if (basketType == null || basketType.toLowerCase().trim().isEmpty())
+            basketType = "small";
+
         this.basketType = basketType;
     }
 
@@ -25,6 +28,9 @@ public class Basket {
     }
 
     public void setCapacity(int capacity) {
+        if (capacity <= 0)
+            capacity = 5;
+
         this.capacity = capacity;
     }
 
@@ -37,15 +43,19 @@ public class Basket {
     }
 
     public void addBagel(Bagel bagel) {
-
+        bagels.add(bagel);
     }
 
     public void removeBagel(Bagel bagel) {
-
+        bagels.remove(bagel);
     }
 
-    public int getTotalCost() {
-        return -1;
+    public float getTotalCost() {
+        float totCost = 0;
+        for (Bagel bagel: bagels)
+            totCost += bagel.getPrice();
+
+        return totCost;
     }
 
 }
