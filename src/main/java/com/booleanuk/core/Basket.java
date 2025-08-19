@@ -27,6 +27,10 @@ public class Basket {
         return capacity;
     }
 
+    public boolean isFull() {
+        return bagels.size() == this.capacity;
+    }
+
     public void setCapacity(int capacity) {
         if (capacity <= 0)
             capacity = 5;
@@ -38,16 +42,18 @@ public class Basket {
         return bagels;
     }
 
-    public void setBagels(ArrayList<Bagel> bagels) {
-        this.bagels = bagels;
+//    public void setBagels(ArrayList<Bagel> bagels) {
+//        this.bagels = bagels;
+//    }
+
+    public boolean addBagel(Bagel bagel) {
+        if (!isFull())
+            return bagels.add(bagel);
+        return false;
     }
 
-    public void addBagel(Bagel bagel) {
-        bagels.add(bagel);
-    }
-
-    public void removeBagel(Bagel bagel) {
-        bagels.remove(bagel);
+    public boolean removeBagel(Bagel bagel) {
+        return bagels.remove(bagel);
     }
 
     public float getTotalCost() {

@@ -2,8 +2,8 @@ package com.booleanuk.core;
 
 public class Filling extends Product {
 
-    public Filling(String sku, float price, String variant) {
-        super(sku, price, variant);
+    public Filling(String sku, float price, String variant, ProductType type) {
+        super(sku, price, variant, type);
 
         setPrice(price);
         setSku(sku);

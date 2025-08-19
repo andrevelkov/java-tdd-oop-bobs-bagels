@@ -7,7 +7,7 @@ public class FillingTest {
 
     @Test
     public void testFillingConstructor() {
-        Filling filling = new Filling("sku123", 10.0f, "Vanilla");
+        Filling filling = new Filling("sku123", 10.0f, "Vanilla", Product.ProductType.FILLING);
 
         assertEquals(10.0f, filling.getPrice());
         assertEquals("SKU123", filling.getSku());
@@ -16,7 +16,7 @@ public class FillingTest {
 
     @Test
     public void testSettersAndGetters() {
-        Filling filling = new Filling("sku123", 10.0f, "Vanilla");
+        Filling filling = new Filling("sku123", 10.0f, "Vanilla", Product.ProductType.FILLING);
 
         filling.setPrice(12.5f);
         filling.setSku("SKU456");
@@ -30,9 +30,9 @@ public class FillingTest {
     @Test
     public void testNullOrEmptyValues() {
         assertThrows(IllegalArgumentException.class, () -> {
-            new Filling("", 0.0f, "");
+            new Filling("", 0.0f, "", Product.ProductType.FILLING);
         });
-        Filling filling = new Filling("", -1f, "");
+        Filling filling = new Filling("", -1f, "", Product.ProductType.FILLING);
         assertEquals(1f, filling.getPrice()); //defaults
         assertEquals("FIL", filling.getSku()); //defaults
         assertEquals("plain", filling.getVariant()); //defaults

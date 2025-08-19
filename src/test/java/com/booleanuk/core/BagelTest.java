@@ -8,10 +8,10 @@ public class BagelTest {
 
     @Test
     public void bagelFillingShouldReturnFillingOrErrorMsg() {
-        Bagel bagel = new Bagel("test", 10, "nice one");
+        Bagel bagel = new Bagel("test", 10, "nice one", Product.ProductType.BAGEL);
         assertNull(bagel.getFilling());
-        Bagel bagel2 = new Bagel("test", 10, "nice one");
-        Filling filling = new Filling("SKU", 0.5f, "filling");
+        Bagel bagel2 = new Bagel("test", 10, "nice one", Product.ProductType.BAGEL);
+        Filling filling = new Filling("SKU", 0.5f, "filling", Product.ProductType.FILLING);
         assertEquals(0.5f, filling.getPrice());
         filling.setPrice(0.13f);
         bagel2.setFilling(filling);
@@ -20,8 +20,8 @@ public class BagelTest {
 
     @Test
     public void getCorrectFillingCost() {
-        Bagel bagel = new Bagel("SKU1", 10f, "nice one");
-        Filling filling = new Filling("SKU", 0.5f, "filling");
+        Bagel bagel = new Bagel("SKU1", 10f, "nice one", Product.ProductType.BAGEL);
+        Filling filling = new Filling("SKU", 0.5f, "filling", Product.ProductType.FILLING);
         assertEquals(10f, bagel.getPrice());
         bagel.setFilling(filling);
         assertEquals(10.5f, bagel.getPrice());

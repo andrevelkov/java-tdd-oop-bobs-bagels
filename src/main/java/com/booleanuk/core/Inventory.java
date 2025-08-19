@@ -6,7 +6,6 @@ import java.util.List;
 public class Inventory {
     private List<Product> products = new ArrayList<>();
 
-
     public void addProduct(Product product) {
         products.add(product);
     }
@@ -17,6 +16,13 @@ public class Inventory {
 
     public List<Product> getInventoryList() {
         return this.products;
+    }
+
+    public Product getProduct(Product.ProductType type, String variant) {
+        for (Product p: products)
+            if (p.getType() == type && p.getVariant().toLowerCase().equals(variant.toLowerCase().trim()))
+                return p;
+        return null;
     }
 
     public void printInventory() {

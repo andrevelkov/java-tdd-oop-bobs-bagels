@@ -1,12 +1,10 @@
 package com.booleanuk.core;
 
-import java.util.List;
-
 public class Bagel extends Product {
     private Filling filling;
 
-    public Bagel(String sku, float price, String variant) {
-        super(sku, price, variant);
+    public Bagel(String sku, float price, String variant, ProductType type) {
+        super(sku, price, variant, type);
 
         setPrice(price);
     }
@@ -32,10 +30,6 @@ public class Bagel extends Product {
 
     public void setFilling(Filling filling) {
         this.filling = filling;
-    }
-
-    public void chooseFilling(List<Filling> fillings){
-
     }
 
     public float getFillingCost() {

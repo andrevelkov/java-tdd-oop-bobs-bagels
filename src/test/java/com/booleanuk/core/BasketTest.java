@@ -34,11 +34,11 @@ public class BasketTest {
     @Test
     public void getTotalCostOfBasket() {
         Basket basket = new Basket("", 0);
-        Bagel bagel = new Bagel("sku", 10, "nice one");
+        Bagel bagel = new Bagel("sku", 10, "nice one", Product.ProductType.BAGEL);
 
         basket.addBagel(bagel);
         assertEquals(10, basket.getTotalCost());
-        Bagel bagel2 = new Bagel("sku2", 55, "good one");
+        Bagel bagel2 = new Bagel("sku2", 55, "good one", Product.ProductType.BAGEL);
         basket.addBagel(bagel2);
         assertEquals(65, basket.getTotalCost());
         basket.removeBagel(bagel);

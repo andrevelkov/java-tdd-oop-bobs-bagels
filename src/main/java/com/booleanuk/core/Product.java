@@ -4,11 +4,13 @@ public abstract class Product {
     private String sku;
     private float price;
     private String variant;
+    private ProductType type;
 
-    public Product(String sku, float price, String variant) {
+    public Product(String sku, float price, String variant, ProductType type) {
         setSku(sku);
         setPrice(price);
         setVariant(variant);
+        this.type = type;
     }
 
     // Getters and setters
@@ -40,8 +42,16 @@ public abstract class Product {
         this.variant = variant;
     }
 
+    public Enum<ProductType> getType() {
+        return this.type;
+    }
+
     @Override
     public String toString() {
         return "Product [SKU=" + sku + ", Price=" + price + ", Variant=" + variant + "]";
+    }
+
+    public enum ProductType {
+        FILLING, BAGEL, COFFEE;
     }
 }
