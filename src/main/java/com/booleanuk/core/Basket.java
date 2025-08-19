@@ -1,5 +1,7 @@
 package com.booleanuk.core;
 
+import com.booleanuk.core.Products.Bagel;
+
 import java.util.ArrayList;
 
 public class Basket {

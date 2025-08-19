@@ -1,6 +1,8 @@
 package com.booleanuk.core;
 
 
+import com.booleanuk.core.Products.Product;
+
 public class Manager {
     private Inventory inventory;
 

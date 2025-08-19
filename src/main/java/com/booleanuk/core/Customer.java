@@ -1,5 +1,9 @@
 package com.booleanuk.core;
 
+import com.booleanuk.core.Products.Bagel;
+import com.booleanuk.core.Products.Filling;
+import com.booleanuk.core.Products.Product;
+
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;

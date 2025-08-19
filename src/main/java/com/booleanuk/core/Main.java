@@ -1,5 +1,9 @@
 package com.booleanuk.core;
 
+import com.booleanuk.core.Products.Bagel;
+import com.booleanuk.core.Products.Filling;
+import com.booleanuk.core.Products.Product;
+
 import java.sql.Time;
 import java.util.List;
 
@@ -20,7 +24,6 @@ public class Main {
         Bagel bagel4 = new Bagel("BGLS", 0.49f, "Sesame", Product.ProductType.BAGEL);
         Bagel bagel5 = new Bagel("BGLS", 0.49f, "Sesame", Product.ProductType.BAGEL);
         Bagel bagel6 = new Bagel("BGLS", 0.49f, "Sesame", Product.ProductType.BAGEL);
-
 
         // Story 1:
         Time time = Time.valueOf("07:45:00");

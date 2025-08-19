@@ -1,4 +1,4 @@
-package com.booleanuk.core;
+package com.booleanuk.core.Products;
 
 public abstract class Product {
     private String sku;

@@ -1,6 +1,10 @@
 package com.booleanuk.core;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import com.booleanuk.core.Products.Bagel;
+import com.booleanuk.core.Products.Filling;
+import com.booleanuk.core.Products.Product;
 import org.junit.jupiter.api.Test;
 
 public class BagelTest {

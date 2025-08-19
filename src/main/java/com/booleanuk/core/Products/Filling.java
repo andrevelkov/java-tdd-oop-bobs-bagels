@@ -1,4 +1,4 @@
-package com.booleanuk.core;
+package com.booleanuk.core.Products;
 
 public class Filling extends Product {
 
