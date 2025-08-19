@@ -1,6 +1,6 @@
 package com.booleanuk.core;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Time;
@@ -16,13 +16,13 @@ public class CustomerTest {
 
         customer.addBagelToBasket(new Bagel("test1", 10, "test1"));
         customer.addBagelToBasket(new Bagel("2", 4, "test1"));
-        Assertions.assertEquals(2, customer.getAmountOfBagelsInBasket());
+        assertEquals(2, customer.getAmountOfBagelsInBasket());
         customer.addBagelToBasket(bagel);
-        Assertions.assertEquals(3, customer.getAmountOfBagelsInBasket());
+        assertEquals(3, customer.getAmountOfBagelsInBasket());
         customer.removeBagelFromBasket(new Bagel("4", 11, "test1"));
-        Assertions.assertEquals(3, customer.getAmountOfBagelsInBasket());
+        assertEquals(3, customer.getAmountOfBagelsInBasket());
         customer.removeBagelFromBasket(bagel);
-        Assertions.assertEquals(2, customer.getAmountOfBagelsInBasket());
+        assertEquals(2, customer.getAmountOfBagelsInBasket());
     }
 
     @Test
@@ -32,7 +32,7 @@ public class CustomerTest {
         Bagel bagel = new Bagel("SKU123", 10f, "NICEUU");
         customer.addBagelToBasket(bagel);
         Time time = Time.valueOf("10:00:00");
-        Assertions.assertEquals("Order: 10:00:00, Bagel: NICEUU", customer.orderBagelAtSpecificTime(time, bagel));
+        assertEquals("Order: 10:00:00, Bagel: NICEUU", customer.orderBagelAtSpecificTime(time, bagel));
     }
 
     @Test
@@ -46,9 +46,9 @@ public class CustomerTest {
         bagel.setFilling(filling);
         customer.addBagelToBasket(bagel);
 
-        Assertions.assertEquals(28.8f, customer.getTotalCost());
+        assertEquals(28.8f, customer.getTotalCost());
         customer.removeBagelFromBasket(bagel);
-        Assertions.assertEquals(14, customer.getTotalCost());
+        assertEquals(14, customer.getTotalCost());
     }
 
     @Test
@@ -62,10 +62,10 @@ public class CustomerTest {
         bagel.setFilling(filling);
         customer.addBagelToBasket(bagel);
 
-        Assertions.assertEquals(14.8f, customer.getBagelPrice(bagel));
+        assertEquals(14.8f, customer.getBagelPrice(bagel));
         customer.removeBagelFromBasket(bagel);
-        Assertions.assertNotEquals(14.8f, customer.getBagelPrice(bagel));
-        Assertions.assertEquals(-1, customer.getBagelPrice(bagel));
+        assertNotEquals(14.8f, customer.getBagelPrice(bagel));
+        assertEquals(-1, customer.getBagelPrice(bagel));
 
     }
 }

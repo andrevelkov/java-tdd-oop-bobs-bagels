@@ -12,7 +12,7 @@ public class Inventory {
     }
 
     public void removeProduct(Product product) {
-
+        products.remove(product);
     }
 
     public List<Product> getInventoryList() {

@@ -1,6 +1,6 @@
 package com.booleanuk.core;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 public class FillingTest {
@@ -9,9 +9,9 @@ public class FillingTest {
     public void testFillingConstructor() {
         Filling filling = new Filling("sku123", 10.0f, "Vanilla");
 
-        Assertions.assertEquals(10.0f, filling.getPrice());
-        Assertions.assertEquals("SKU123", filling.getSku());
-        Assertions.assertEquals("Vanilla", filling.getVariant());
+        assertEquals(10.0f, filling.getPrice());
+        assertEquals("SKU123", filling.getSku());
+        assertEquals("Vanilla", filling.getVariant());
     }
 
     @Test
@@ -22,19 +22,19 @@ public class FillingTest {
         filling.setSku("SKU456");
         filling.setVariant("Chocolate");
 
-        Assertions.assertEquals(12.5f, filling.getPrice());
-        Assertions.assertEquals("SKU456", filling.getSku());
-        Assertions.assertEquals("Chocolate", filling.getVariant());
+        assertEquals(12.5f, filling.getPrice());
+        assertEquals("SKU456", filling.getSku());
+        assertEquals("Chocolate", filling.getVariant());
     }
 
     @Test
     public void testNullOrEmptyValues() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(IllegalArgumentException.class, () -> {
             new Filling("", 0.0f, "");
         });
         Filling filling = new Filling("", -1f, "");
-        Assertions.assertEquals(1f, filling.getPrice()); //defaults
-        Assertions.assertEquals("FIL", filling.getSku()); //defaults
-        Assertions.assertEquals("plain", filling.getVariant()); //defaults
+        assertEquals(1f, filling.getPrice()); //defaults
+        assertEquals("FIL", filling.getSku()); //defaults
+        assertEquals("plain", filling.getVariant()); //defaults
     }
 }
