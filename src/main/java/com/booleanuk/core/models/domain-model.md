@@ -5,6 +5,7 @@
 |             | `removeBagel(Bagel bagel)`                | If user tries to remove a bagel in the basket              | Removes the bagel from the basket              |
 |             |                                           | If user tries to remove a bagel not in the basket          | Error message: "Item not in basket."           |
 |             | `getTotalCost()`                          | When the user checks the total cost of the basket          | Returns total price of all items in the basket |
+|             | `isBasketFull()`                          | When customer tries to add new -> check if full            | Returns true if full                           |
 | `Bagel`     | `getPrice()`                              | If user checks the price of a specific bagel               | Returns price of the bagel                     |
 |             | `chooseFillings(List<Filling> fillings)`  | If user selects fillings for a bagel                       | Updates the bagel with selected fillings       |
 |             | `getFillingCost(List<Filling> fillings)`  | If user checks the cost of fillings                        | Returns total cost of selected fillings        |
@@ -23,4 +24,4 @@
 |             | `orderBagelAtSpecificTime`                | If customer wants to order bagel before set time           |                                                |
 | `Inventory` | `addItem`                                 | If manager wants to add new item to inventory              | Update inventory                               |
 |             | `removeItem`                              | If manager wants to remove item from inventory             | Remove item from inventory                     |
-| `Filling`    | ``                                        |      |                |
+| `Filling`    | ``                                        |                                                            |                                                |
