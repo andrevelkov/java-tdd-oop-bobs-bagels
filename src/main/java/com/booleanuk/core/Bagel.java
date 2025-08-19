@@ -42,10 +42,6 @@ public class Bagel extends Product {
         return (this.filling != null) ? this.filling.getPrice() : 0f;
     }
 
-//    public int getBagelTotPrice() {
-//        return 0;
-//    }
-
     @Override
     public String toString() {
         return this.getVariant();

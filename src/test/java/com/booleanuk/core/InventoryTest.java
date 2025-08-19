@@ -9,7 +9,7 @@ public class InventoryTest {
     @Test
     public void testAddProductToInventory() {
         Inventory inventory = new Inventory();
-        Product product = new Product("ABC123", 99.99f, "Red");
+        Product product = new Bagel("ABC123", 99.99f, "Red");
 
         inventory.addProduct(product);
         List<Product> products = inventory.getInventoryList();
@@ -20,8 +20,8 @@ public class InventoryTest {
     @Test
     public void testGetInventoryList() {
         Inventory inventory = new Inventory();
-        Product product1 = new Product("ABC123", 99.99f, "Red");
-        Product product2 = new Product("DEF456", 29.99f, "Blue");
+        Product product1 = new Bagel("ABC123", 99.99f, "Red");
+        Product product2 = new Bagel("DEF456", 29.99f, "Blue");
 
         inventory.addProduct(product1);
         inventory.addProduct(product2);
@@ -35,8 +35,8 @@ public class InventoryTest {
     @Test
     public void testRemoveProductFromInventory() {
         Inventory inventory = new Inventory();
-        Product product1 = new Product("ABC123", 99.99f, "Red");
-        Product product2 = new Product("DEF456", 29.99f, "Blue");
+        Product product1 = new Bagel("ABC123", 99.99f, "Red");
+        Product product2 = new Bagel("DEF456", 29.99f, "Blue");
 
         inventory.addProduct(product1);
         inventory.addProduct(product2);

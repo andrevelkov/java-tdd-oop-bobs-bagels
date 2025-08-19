@@ -7,7 +7,7 @@ public class ProductTest {
 
     @Test
     public void testProductCreationWithValidData() {
-        Product product = new Product("ABC123", 99.99f, "Red");
+        Product product = new Bagel("ABC123", 99.99f, "Red");
 
         // Check if the product's SKU, price, and variant are set correctly
         assertEquals("ABC123", product.getSku());
@@ -21,14 +21,14 @@ public class ProductTest {
     @Test
     public void testSetPriceThrowsExceptionForNegativePrice() {
         assertThrows(IllegalArgumentException.class, () -> {
-            new Product("XYZ456", -50f, "Blue");
+            new Bagel("XYZ456", -50f, "Blue");
         });
     }
 
     @Test
     public void testSetPriceThrowsExceptionForZeroPrice() {
         assertThrows(IllegalArgumentException.class, () -> {
-            new Product("XYZ456", 0f, "Blue");
+            new Bagel("XYZ456", 0f, "Blue");
         });
     }
 }
